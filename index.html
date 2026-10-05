@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!-- 
+  ═══════════════════════════════════════════════════════════════
+  متجر بشار الحداد | LUXURY STORE
+  الإصدار 2.0 - تصميم فاخر + تفاعل كامل
+  ═══════════════════════════════════════════════════════════════
+-->
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بشار الحداد | متجر الهواتف الفاخر</title>
+    
+    <!-- خطوط عربية فاخرة من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- ملفات التصميم -->
+    <link rel="stylesheet" href="stayl.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+    <!-- ══════════════════════════════════════════
+         شريط العروض المتحرك (Ticker)
+         ══════════════════════════════════════════ -->
+    <div class="ticker-bar">
+        <div class="ticker-content">
+            <span>🔥 خصم 30% على جميع الهواتف الرائدة</span>
+            <span>🚚 توصيل مجاني للطلبات فوق 500$</span>
+            <span>💎 ضمان سنتين على جميع المنتجات</span>
+            <span>🎁 هدية مع كل عملية شراء</span>
+            <span>🔥 خصم 30% على جميع الهواتف الرائدة</span>
+            <span>🚚 توصيل مجاني للطلبات فوق 500$</span>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         الهيدر الرئيسي
+         ══════════════════════════════════════════ -->
+    <header id="main-header">
+        <!-- الشعار -->
+        <div class="left">
+            <div class="logo-icon">WG</div>
+            <div class="logo-text">
+                <p>BASHAR</p>
+                <span>LUXURY</span>
+            </div>
+        </div>
+
+        <!-- البحث الفوري -->
+        <div class="mad">
+            <div class="search-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="ابحث عن هاتف أو موديم..." autocomplete="off">
+                <div class="search-results" id="search-results"></div>
+            </div>
+        </div>
+
+        <!-- الروابط والأدوات -->
+        <div class="raght">
+            <a href="#phones"><i class="fas fa-mobile-alt"></i> الهواتف</a>
+            <a href="#modems"><i class="fas fa-wifi"></i> الموديمات</a>
+            
+            <!-- أيقونة الوضع الليلي -->
+            <button class="icon-btn" onclick="toggleTheme()" title="الوضع الليلي">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            
+            <!-- أيقونة المفضلة -->
+            <button class="icon-btn" onclick="toggleWishlist()" title="المفضلة">
+                <i class="fas fa-heart"></i>
+                <span class="badge" id="wishlist-count">0</span>
+            </button>
+            
+            <!-- أيقونة السلة -->
+            <button class="icon-btn cart-btn" onclick="toggleCart()" title="السلة">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════
+         سلايدر العروض (Banner Carousel)
+         ══════════════════════════════════════════ -->
+    <section class="banner-slider">
+        <div class="slider-container" id="slider-container">
+            <!-- سيتم إدراج الشرائح عبر JavaScript -->
+        </div>
+        
+        <!-- أزرار التنقل -->
+        <button class="slider-btn prev" onclick="prevSlide()"><i class="fas fa-chevron-right"></i></button>
+        <button class="slider-btn next" onclick="nextSlide()"><i class="fas fa-chevron-left"></i></button>
+        
+        <!-- نقاط المؤشر -->
+        <div class="slider-dots" id="slider-dots"></div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         كروت العروض اليومية (Daily Offers)
+         ══════════════════════════════════════════ -->
+    <section class="offers-section">
+        <div class="section-head">
+            <h2 class="section-title">⚡ عروض اليوم</h2>
+            <div class="countdown" id="countdown">
+                <span>ينتهي بعد:</span>
+                <div class="time-box"><span id="hours">00</span><small>ساعة</small></div>
+                <div class="time-box"><span id="minutes">00</span><small>دقيقة</small></div>
+                <div class="time-box"><span id="seconds">00</span><small>ثانية</small></div>
+            </div>
+        </div>
+        
+        <div class="offers-grid" id="offers-grid">
+            <!-- سيتم إدراج كروت العروض عبر JavaScript -->
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         شريط الفلترة
+         ══════════════════════════════════════════ -->
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProducts('all', this)">
+            <i class="fas fa-th"></i> الكل
+        </button>
+        <button class="filter-btn" onclick="filterProducts('flagship', this)">
+            <i class="fas fa-crown"></i> الفئة الفاخرة
+        </button>
+        <button class="filter-btn" onclick="filterProducts('midrange', this)">
+            <i class="fas fa-star"></i> الفئة المتوسطة
+        </button>
+        <button class="filter-btn" onclick="filterProducts('budget', this)">
+            <i class="fas fa-tag"></i> الفئة الاقتصادية
+        </button>
+        <button class="filter-btn" onclick="filterProducts('modem', this)">
+            <i class="fas fa-wifi"></i> الموديمات
+        </button>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         قسم الهواتف الذكية
+         ══════════════════════════════════════════ -->
+    <section id="phones" class="section">
+        <div class="section-head">
+            <h2 class="section-title">📱 الهواتف الذكية</h2>
+            <p class="section-desc">15 شركة عالمية - أحدث الموديلات</p>
+        </div>
+        <div class="prodact1" id="phones-grid"></div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         قسم موديمات الإنترنت
+         ══════════════════════════════════════════ -->
+    <section id="modems" class="section section-alt">
+        <div class="section-head">
+            <h2 class="section-title">📡 موديمات الإنترنت</h2>
+            <p class="section-desc">5 شركات رائدة - سرعات فائقة</p>
+        </div>
+        <div class="prodact3" id="modems-grid"></div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         قسم التواصل
+         ══════════════════════════════════════════ -->
+    <section id="contact" class="section contact-section">
+        <div class="section-head">
+            <h2 class="section-title">📞 تواصل معنا</h2>
+            <p class="section-desc">نحن هنا لخدمتك على مدار الساعة</p>
+        </div>
+        
+        <div class="contact-cards">
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h4>اتصل بنا</h4>
+                <p>+967 710 000 000</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h4>البريد الإلكتروني</h4>
+                <p>info@bashar-store.com</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>العنوان</h4>
+                <p>اليمن - صنعاء</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         سلة المشتريات الجانبية
+         ══════════════════════════════════════════ -->
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> سلة المشتريات</h3>
+            <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-cart">السلة فارغة</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>الإجمالي:</span>
+                <strong id="cart-total">0 $</strong>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">
+                <i class="fas fa-check-circle"></i> إتمام الشراء
+            </button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         نافذة تفاصيل المنتج (Modal)
+         ══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         زر العودة للأعلى
+         ══════════════════════════════════════════ -->
+    <button class="scroll-top" id="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ══════════════════════════════════════════
+         الفوتر
+         ══════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>BASHAR STORE</h3>
+                <p>متجرك الموثوق للهواتف الذكية وموديمات الإنترنت بأفضل الأسعار.</p>
+            </div>
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <a href="#phones">الهواتف</a>
+                <a href="#modems">الموديمات</a>
+                <a href="#contact">تواصل معنا</a>
+            </div>
+            <div class="footer-col">
+                <h4>تابعنا</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 بشار الحداد - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
