@@ -52,7 +52,7 @@ function renderProducts(products, containerId) {
             <!-- صورة المنتج -->
             <div class="product-image-wrapper" onclick="showProductModal(${product.id})">
                 <img src="${product.image}" alt="${product.name}" 
-                     onerror="this.src='images/default.png'">
+                     onerror="this.src='default.png'">
                 ${product.oldPrice ? `<span class="discount-badge">-${Math.round((1 - product.price/product.oldPrice)*100)}%</span>` : ''}
             </div>
             
@@ -154,7 +154,7 @@ function renderOffers() {
     container.innerHTML = dailyOffers.map(offer => `
         <div class="offer-card">
             <div class="offer-discount">-${offer.discount}%</div>
-            <img src="${offer.image}" alt="${offer.name}" onerror="this.src='images/default.png'">
+            <img src="${offer.image}" alt="${offer.name}" onerror="this.src='default.png'">
             <h4>${offer.name}</h4>
             <div class="offer-price">
                 <span class="price-current">${offer.price} $</span>
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             resultsBox.innerHTML = results.map(p => `
                 <div class="search-result-item" onclick="showProductModal(${p.id})">
-                    <img src="${p.image}" onerror="this.src='images/default.png'">
+                    <img src="${p.image}" onerror="this.src='default.png'">
                     <div>
                         <p>${p.name}</p>
                         <span>${p.price} $</span>
@@ -314,7 +314,7 @@ function updateCartUI() {
 
     cartItems.innerHTML = cart.map(item => `
         <div class="cart-item">
-            <img src="${item.image}" onerror="this.src='images/default.png'">
+            <img src="${item.image}" onerror="this.src='default.png'">
             <div class="cart-item-info">
                 <p>${item.name}</p>
                 <span>${item.quantity} × ${item.price} $</span>
@@ -397,7 +397,7 @@ function showProductModal(productId) {
     modalBody.innerHTML = `
         <div class="modal-product">
             <div class="modal-image">
-                <img src="${product.image}" onerror="this.src='images/default.png'">
+                <img src="${product.image}" onerror="this.src='default.png'">
             </div>
             <div class="modal-details">
                 <span class="product-brand">${product.brand}</span>
