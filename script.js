@@ -69,7 +69,7 @@ function renderProducts(products, containerId) {
                 
                 <!-- السعر -->
                 <div class="product-price">
-                    <span class="price-current">${product.price} $</span>
+                    <span class="price-current">${product.price} YR </span>
                     ${product.oldPrice ? `<span class="price-old">${product.oldPrice} $</span>` : ''}
                 </div>
                 
@@ -157,8 +157,8 @@ function renderOffers() {
             <img src="${offer.image}" alt="${offer.name}" onerror="this.src='default.png'">
             <h4>${offer.name}</h4>
             <div class="offer-price">
-                <span class="price-current">${offer.price} $</span>
-                <span class="price-old">${offer.oldPrice} $</span>
+                <span class="price-current">${offer.price} YR</span>
+                <span class="price-old">${offer.oldPrice} YR</span>
             </div>
             <span class="offer-time"><i class="fas fa-clock"></i> ${offer.timeLeft}</span>
             <button class="btn-offer" onclick="addToCart(${offer.id})">اطلب الآن</button>
@@ -308,7 +308,7 @@ function updateCartUI() {
 
     if (cart.length === 0) {
         cartItems.innerHTML = '<p class="empty-cart">🛒 السلة فارغة</p>';
-        cartTotal.textContent = '0 $';
+        cartTotal.textContent = '0 YR';
         return;
     }
 
@@ -337,17 +337,76 @@ function toggleCart() {
     document.getElementById('cart-panel').classList.toggle('open');
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   [9-B] إتمام الشراء وإرسال الطلب عبر واتساب
+   ═══════════════════════════════════════════════════════════════ */
+
+/* رقم الواتساب - عدّله حسب رغبتك (بدون + وبدون أصفار في البداية) */
+const WHATSAPP_NUMBER = "967717255871";  // ← غيّر الرقم هنا
+
 function checkout() {
+    // التحقق من أن السلة ليست فارغة
     if (cart.length === 0) {
         showToast('⚠️ السلة فارغة! أضف منتجات أولاً', 'warning');
         return;
     }
+    
+    // حساب الإجمالي
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    showToast(`🎉 شكرًا لك! الإجمالي: ${total} $\nسنتواصل معك قريبًا`, 'success');
-    cart = [];
-    saveCart();
-    updateCartUI();
-    toggleCart();
+    
+    // بناء رسالة الواتساب
+    const message = buildWhatsAppMessage(cart, total);
+    
+    // إنشاء رابط الواتساب
+    // wa.me هو الرابط الرسمي لواتساب (يعمل على الجوال والكمبيوتر)
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    
+    // فتح الواتساب في نافذة جديدة
+    window.open(whatsappURL, '_blank');
+    
+    // إشعار للمستخدم
+    showToast('✅ تم إرسال طلبك إلى واتساب! سيتم التواصل معك قريبًا', 'success');
+    
+    // تفريغ السلة بعد الإرسال (اختياري - يمكن حذفه إذا أردت الاحتفاظ بالمنتجات)
+    setTimeout(() => {
+        cart = [];
+        saveCart();
+        updateCartUI();
+        toggleCart();
+    }, 1500); // بعد 1.5 ثانية
+}
+
+/* ─────────────────────────────────────────────────────────────
+   دالة بناء رسالة الواتساب بتنسيق احترافي
+   ───────────────────────────────────────────────────────────── */
+function buildWhatsAppMessage(cart, total) {
+    // ترويسة الرسالة
+    let message = "🛒 *طلب جديد من الوكالة الذهبية*\n";
+    message += "━━━━━━━━━━━━━━━━━━━━\n\n";
+    
+    // قائمة المنتجات
+    message += "📦 *تفاصيل الطلب:*\n\n";
+    
+    cart.forEach((item, index) => {
+        message += `${index + 1}. *${item.name}*\n`;
+        message += `   🏢 الشركة: ${item.brand}\n`;
+        message += `   📊 الكمية: ${item.quantity}\n`;
+        message += `   💰 السعر: ${item.price}  × ${item.quantity} = ${item.price * item.quantity} YR\n\n`;
+    });
+    
+    message += "━━━━━━━━━━━━━━━━━━━━\n";
+    message += `💵 *الإجمالي:* ${total} YR\n`;
+    message += "━━━━━━━━━━━━━━━━━━━━\n\n";
+    
+    // معلومات العميل (سنطلبها لاحقًا)
+    message += "👤 *معلومات العميل:*\n";
+    message += "الاسم: \n";
+    message += "العنوان: \n";
+    message += "رقم الهاتف: \n\n";
+    
+    message += "شكرًا لكم 🌟";
+    
+    return message;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -406,7 +465,7 @@ function showProductModal(productId) {
                 <p class="modal-specs">${product.specs}</p>
                 
                 <div class="modal-price">
-                    <span class="price-current">${product.price} $</span>
+                    <span class="price-current">${product.price} YR</span>
                     ${product.oldPrice ? `<span class="price-old">${product.oldPrice} $</span>` : ''}
                 </div>
                 
