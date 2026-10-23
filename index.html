@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <!-- 
   ═══════════════════════════════════════════════════════════════
-  متجر بشار الحداد | LUXURY STORE
-  الإصدار 2.0 - تصميم فاخر + تفاعل كامل
+   بشار الفاروق
+   الإصدار 2.0 السياد التكنولوجيا
   ═══════════════════════════════════════════════════════════════
 -->
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بشار الحداد | متجر الهواتف الفاخر</title>
+    <title>
+   
+      الوكالة الذهبية للهواتف  الذكيه</title>
     
     <!-- خطوط عربية فاخرة من Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,8 +49,8 @@
         <div class="left">
             <div class="logo-icon">WG</div>
             <div class="logo-text">
-                <p>BASHAR</p>
-                <span>LUXURY</span>
+                <p>الوكالة الذهبيه </p>
+                <span>للهواتف الذكيه </span>
             </div>
         </div>
 
@@ -176,17 +178,17 @@
             <div class="contact-card">
                 <i class="fas fa-phone-alt"></i>
                 <h4>اتصل بنا</h4>
-                <p>+967 710 000 000</p>
+                <p>+967 776367053</p>
             </div>
             <div class="contact-card">
                 <i class="fas fa-envelope"></i>
                 <h4>البريد الإلكتروني</h4>
-                <p>info@bashar-store.com</p>
+                <p>alwakalh@gmail</p>
             </div>
             <div class="contact-card">
                 <i class="fas fa-map-marker-alt"></i>
                 <h4>العنوان</h4>
-                <p>اليمن - صنعاء</p>
+                <p>اليمن - اب-جولة العدين -خط السبل</p>
             </div>
         </div>
     </section>
@@ -205,7 +207,7 @@
         <div class="cart-footer">
             <div class="total-row">
                 <span>الإجمالي:</span>
-                <strong id="cart-total">0 $</strong>
+                <strong id="cart-total">0 </strong>
             </div>
             <button class="btn-checkout" onclick="checkout()">
                 <i class="fas fa-check-circle"></i> إتمام الشراء
@@ -214,12 +216,12 @@
     </div>
 
     <!-- ══════════════════════════════════════════
-         نافذة تفاصيل المنتج (Modal)
+         نافذة تفاصيل المنتج 
          ══════════════════════════════════════════ -->
     <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-            <div id="modal-body"></div>
+            <div id="modal-body">DD</div>
         </div>
     </div>
 
@@ -236,7 +238,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-col">
-                <h3>BASHAR STORE</h3>
+                <h3>الوكالة الذهبية</h3>
                 <p>متجرك الموثوق للهواتف الذكية وموديمات الإنترنت بأفضل الأسعار.</p>
             </div>
             <div class="footer-col">
@@ -248,19 +250,103 @@
             <div class="footer-col">
                 <h4>تابعنا</h4>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/message/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/message/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/message/"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/message/"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 بشار الحداد - جميع الحقوق محفوظة</p>
+            <p>© 2026 -  بشار الفاروق717255871</p>
+            <p>للمواقع الكترونيه وتطبيقات</p>
         </div>
     </footer>
 
     <!-- ملفات JavaScript -->
+    <!-- ══════════════════════════════════════════
+     نافذة معلومات العميل قبل إرسال الطلب
+     ══════════════════════════════════════════ -->
+<div class="modal-overlay" id="checkout-modal">
+    <div class="modal-content checkout-modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeCheckoutModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <h2 class="checkout-title">
+            <i class="fas fa-user-check"></i> معلومات الطلب
+        </h2>
+        <p class="checkout-subtitle">يرجى ملء البيانات لإتمام طلبك عبر واتساب</p>
+        
+        <form id="checkout-form" onsubmit="submitCheckout(event)">
+            <!-- الاسم -->
+            <div class="form-group">
+                <label for="customer-name">
+                    <i class="fas fa-user"></i> الاسم الكامل *
+                </label>
+                <input type="text" id="customer-name" required placeholder="مثال: أحمد محمد">
+            </div>
+            
+            <!-- رقم الهاتف -->
+            <div class="form-group">
+                <label for="customer-phone">
+                    <i class="fas fa-phone"></i> رقم الهاتف *
+                </label>
+                <input type="tel" id="customer-phone" required placeholder='967780232222' pattern="[0-9]{9,15}">
+            </div>
+            
+            <!-- المحافظة -->
+            <div class="form-group">
+                <label for="customer-city">
+                    <i class="fas fa-map-marker-alt"></i> المحافظة *
+                </label>
+                <select id="customer-city" required>
+                    <option value="">اختر المحافظة</option>
+                    <option value="صنعاء">صنعاء</option>
+                    <option value="عدن">عدن</option>
+                    <option value="تعز">تعز</option>
+                    <option value="الحديدة">الحديدة</option>
+                    <option value="حضرموت">حضرموت</option>
+                    <option value="إب">إب</option>
+                    <option value="ذمار">ذمار</option>
+                    <option value="المكلا">المكلا</option>
+                    <option value="مأرب">مأرب</option>
+                    <option value="أخرى">أخرى</option>
+                </select>
+            </div>
+            
+            <!-- العنوان التفصيلي -->
+            <div class="form-group">
+                <label for="customer-address">
+                    <i class="fas fa-home"></i> العنوان التفصيلي *
+                </label>
+                <textarea id="customer-address" required rows="3" placeholder="الحي، الشارع، أقرب معلم..."></textarea>
+            </div>
+            
+            <!-- ملاحظات إضافية -->
+            <div class="form-group">
+                <label for="customer-notes">
+                    <i class="fas fa-comment"></i> ملاحظات (اختياري)
+                </label>
+                <textarea id="customer-notes" rows="2" placeholder="أي تفاصيل إضافية..."></textarea>
+            </div>
+            
+            <!-- ملخص الطلب -->
+            <div class="checkout-summary" id="checkout-summary"></div>
+            
+            <!-- أزرار -->
+            <div class="checkout-actions">
+                <button type="button" class="btn-cancel" onclick="closeCheckoutModal()">
+                    <i class="fas fa-times"></i> إلغاء
+                </button>
+                <button type="submit" class="btn-send-whatsapp">
+                    <i class="fab fa-whatsapp"></i> إرسال الطلب عبر واتساب
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>

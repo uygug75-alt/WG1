@@ -1,10 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
-   ملف JavaScript الرئيسي - متجر بشار الحداد
-   يحتوي على جميع الوظائف التفاعلية
+   اليمان يمان ولحكمه يمانيه تحيات بشار الفاروق
    ═══════════════════════════════════════════════════════════════ */
 
 /* ----------------------------------------------------------------
-   [1] المتغيرات العامة
+   المتغيرات العامة
    ---------------------------------------------------------------- */
 let cart = JSON.parse(localStorage.getItem('bashar_cart')) || [];
 let wishlist = JSON.parse(localStorage.getItem('bashar_wishlist')) || [];
@@ -12,7 +11,7 @@ let currentSlide = 0;
 let sliderInterval;
 
 /* ----------------------------------------------------------------
-   [2] تشغيل الكود عند تحميل الصفحة
+  تشغيل الكود عند تحميل الصفحة
    ---------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts(phones, 'phones-grid');
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ═══════════════════════════════════════════════════════════════
-   [3] عرض المنتجات
+   عرض المنتجات
    ═══════════════════════════════════════════════════════════════ */
 function renderProducts(products, containerId) {
     const container = document.getElementById(containerId);
@@ -70,7 +69,7 @@ function renderProducts(products, containerId) {
                 <!-- السعر -->
                 <div class="product-price">
                     <span class="price-current">${product.price} YR </span>
-                    ${product.oldPrice ? `<span class="price-old">${product.oldPrice} $</span>` : ''}
+                    ${product.oldPrice ? `<span class="price-old">${product.oldPrice} YR</span>` : ''}
                 </div>
                 
                 <!-- زر الإضافة -->
@@ -98,7 +97,7 @@ function renderStars(rating) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [4] السلايدر (Banner Carousel)
+   السلايدر (Banner Carousel)
    ═══════════════════════════════════════════════════════════════ */
 function renderSlider() {
     const container = document.getElementById('slider-container');
@@ -145,7 +144,7 @@ function startSliderAuto() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [5] كروت العروض اليومية
+كروت العروض اليومية
    ═══════════════════════════════════════════════════════════════ */
 function renderOffers() {
     const container = document.getElementById('offers-grid');
@@ -153,7 +152,7 @@ function renderOffers() {
 
     container.innerHTML = dailyOffers.map(offer => `
         <div class="offer-card">
-            <div class="offer-discount">-${offer.discount}%</div>
+            <div class="offer-discount">${offer.discount}%</div>
             <img src="${offer.image}" alt="${offer.name}" onerror="this.src='default.png'">
             <h4>${offer.name}</h4>
             <div class="offer-price">
@@ -167,7 +166,7 @@ function renderOffers() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [6] العدّاد التنازلي للعروض
+    العدّاد التنازلي للعروض
    ═══════════════════════════════════════════════════════════════ */
 function startCountdown() {
     // نهاية العرض: نهاية اليوم الحالي
@@ -192,7 +191,7 @@ function startCountdown() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [7] البحث الفوري
+   البحث الفوري
    ═══════════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
@@ -223,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${p.image}" onerror="this.src='default.png'">
                     <div>
                         <p>${p.name}</p>
-                        <span>${p.price} $</span>
+                        <span>${p.price} YR</span>
                     </div>
                 </div>
             `).join('');
@@ -240,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ═══════════════════════════════════════════════════════════════
-   [8] الفلترة
+   الفلترة
    ═══════════════════════════════════════════════════════════════ */
 function filterProducts(category, btn) {
     // تحديث الزر النشط
@@ -317,7 +316,7 @@ function updateCartUI() {
             <img src="${item.image}" onerror="this.src='default.png'">
             <div class="cart-item-info">
                 <p>${item.name}</p>
-                <span>${item.quantity} × ${item.price} $</span>
+                <span>${item.quantity} × ${item.price} YR</span>
             </div>
             <button onclick="removeFromCart(${item.id})" class="remove-btn">
                 <i class="fas fa-trash"></i>
@@ -326,7 +325,7 @@ function updateCartUI() {
     `).join('');
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    cartTotal.textContent = total + ' $';
+    cartTotal.textContent = total + ' YR';
 }
 
 function saveCart() {
@@ -338,11 +337,11 @@ function toggleCart() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [9-B] إتمام الشراء وإرسال الطلب عبر واتساب
+   إتمام الشراء وإرسال الطلب عبر واتساب
    ═══════════════════════════════════════════════════════════════ */
 
 /* رقم الواتساب - عدّله حسب رغبتك (بدون + وبدون أصفار في البداية) */
-const WHATSAPP_NUMBER = "967717255871";  // ← غيّر الرقم هنا
+const WHATSAPP_NUMBER = "967780232222";  // ← غيّر الرقم هنا
 
 function checkout() {
     // التحقق من أن السلة ليست فارغة
@@ -410,7 +409,7 @@ function buildWhatsAppMessage(cart, total) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [10] المفضلة (Wishlist)
+    المفضلة (Wishlist)
    ═══════════════════════════════════════════════════════════════ */
 function toggleWishlistItem(productId, event) {
     event.stopPropagation();
@@ -446,7 +445,7 @@ function toggleWishlist() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [11] نافذة تفاصيل المنتج (Modal)
+    نافذة تفاصيل المنتج (Modal)
    ═══════════════════════════════════════════════════════════════ */
 function showProductModal(productId) {
     const product = [...phones, ...modems].find(p => p.id === productId);
@@ -466,7 +465,7 @@ function showProductModal(productId) {
                 
                 <div class="modal-price">
                     <span class="price-current">${product.price} YR</span>
-                    ${product.oldPrice ? `<span class="price-old">${product.oldPrice} $</span>` : ''}
+                    ${product.oldPrice ? `<span class="price-old">${product.oldPrice} YR</span>` : ''}
                 </div>
                 
                 <div class="modal-actions">
@@ -493,7 +492,7 @@ function closeModal(event) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [12] الإشعارات (Toast Notifications)
+   الإشعارات (Toast Notifications)
    ═══════════════════════════════════════════════════════════════ */
 function showToast(message, type = 'info') {
     // حذف أي إشعار قديم
@@ -514,7 +513,7 @@ function showToast(message, type = 'info') {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [13] الوضع الليلي/النهاري
+  الوضع الليلي/النهاري
    ═══════════════════════════════════════════════════════════════ */
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
@@ -534,7 +533,7 @@ function loadTheme() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   [14] زر العودة للأعلى
+ زر العودة للأعلى
    ═══════════════════════════════════════════════════════════════ */
 function setupScrollTop() {
     window.addEventListener('scroll', () => {
