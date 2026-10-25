@@ -19,6 +19,11 @@ const phones = [
   { id: 3, name: "Galaxy S22 Ultra", brand: "Samsung", price: 190000, oldPrice: null, category: "flagship", rating: 4, badge: "sale", image: "S22.jpg", specs: "Snapdragon 8 Gen 1 - 512GB - كاميرا 108MP" },
   { id: 4, name: "Galaxy S21 Ultra", brand: "Samsung", price: 143000, oldPrice: null, category: "flagship", rating: 4, badge: null, image: "S21ULTRA.png", specs: "Exynos 2100 - 128GB - كاميرا 108MP" },
   { id: 5, name: "Galaxy S21 FE", brand: "Samsung", price: 75000, oldPrice: null, category: "midrange", rating: 4, badge: "sale", image: "samsung-s21-fe.png", specs: "Snapdragon 888 - 128GB - كاميرا 12MP" },
+ 
+ { id: 5.6, name: "Galaxy S21 FE", brand: "Samsung", price: 75000, oldPrice: null, category: "midrange", rating: 4, badge: "sale", image: "samsung-s21-fe.png", specs: "Snapdragon 888 - 128GB - كاميرا 12MP" },
+ 
+ 
+ 
   { id: 6, name: "Galaxy NOT20 Ultra", brand: "Samsung", price: 140000, oldPrice: null, category: "flagship", rating: 4, badge: null, image: "NOT20LTUR.jpg", specs: "Exynos 990 - 128GB - كاميرا 200MP" }, 
  //{ id: 7, name: "Galaxy M50 Plus", brand: "LT", price: 98000, oldPrice: null, category: "midrange", rating: 4, badge: null, image: "M25", specs: "Snapdragon 750G - 128GB - بطارية 7000mAh" },
   { id: 7, name: "Galaxy A54 ", brand: "Samsung", price: 56000, oldPrice: null, category: "midrange", rating: 4, badge: null, image: "samsung-a54.png ", specs: "  128GB - بطارية 5000mAh" },
@@ -37,7 +42,24 @@ const phones = [
   { id: 17, name: "not20العادي", brand: "REDME", price: 95000, oldPrice: null, category: "flagship", rating: 4, badge: "hot", image: "not20.jpg", specs: "Snapdragon 2 Gen 3 - 256GB" },
   { id: 18, name: "moto-xt2419", brand: "moto", price: 46000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "MOTOXT.jpg", specs: " 128GB" },
   { id: 19, name: "oneplus", brand: "oneplus", price: 30000, oldPrice: null, category: "flagship", rating: 4, badge: "hot", image: "ONEPLUSM200.jpg", specs: "64GB" },
- // { id: 33, name: "LT-M17", brand: "LT", price: 1000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "redme14C.png", specs: "128GB" },
+  { id: 20, name: "infinx-hot60", brand: "infnix", price: 113000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "infnaxHot60.png", specs: "256GB" },
+  { id: 21, name: "itel-A100c", brand: "itel", price: 55000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "itelA100c.jpg", specs: "128GB" },
+  { id: 22, name: "moto-2025", brand: "moto", price: 37000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "XT-2513.jpg", specs: "الموديل-xt-2513 ذاكره128GB" },
+  { id: 23, name: "Glaxy-S25FE", brand: "SAMSUNG", price: 145000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "S25FE.png", specs: "512GB" },
+  { id: 24, name: "ZTE-A36", brand: "ZTE", price: 40000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "ZTE.jpg", specs: "64GB" },
+  { id: 25, name: "S20+", brand: "samung", price: 87000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "S20+.png", specs: "128GB" },
+  { id: 26, name: "s20ULTRA", brand: "samsung", price: 110000, oldPrice: null, category: "flagship", rating: 4, badge: null, image: "s20ultra.png", specs: "128GB" },
+  { id: 27, name: "GLAXSY A01", brand: "Samsung", price: 15000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "A01.jpg", specs: "32GB" },
+  { id: 28, name: "GLAXSY A03", brand: "Samsung", price: 21000, oldPrice: null, category: "flagship", rating: 4, badge: "hot", image: "A03.jpg", specs: "32GB" },
+  { id: 29, name: "GLAXSY A11", brand: "Samsung", price: 27000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "A11.jpg", specs: "32GB" },
+  { id: 30, name: "ITEL-A200C", brand: "ITEL", price: 52000, oldPrice: null, category: "flagship", rating: 4, badge: "hot", image: "A200C.jpg", specs: "128GB" },
+  { id: 31, name: "QUKITEL-C62", brand: "QUKITEL", price: 62000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "QUK-C62.jpg", specs: "128GB" },
+  { id: 32, name: "MOTO-EDG", brand: "moto", price:64000 , oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "MOTO-EDG.jpg", specs: "256GB" },
+  { id: 33, name: "QUKITEL-C26", brand: "QUKITEL", price: 51000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "QUK-C26.jpg", specs: "128GB" },
+  { id: 34, name: "TACNO-SPARKGO3", brand: "TACNO", price: 60000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "SPARKGO3.jpg", specs: "128GB" },
+  { id: 35, name: "TACNOC-SPARK40PRO", brand: "TACNO", price: 107000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "TACNO-1.jpg", specs: "256GB" },
+  { id: 36, name: "GLAXSY A12", brand: "SAMSAUNG", price: 30000, oldPrice: null, category: "flagship", rating: 3, badge: "hot", image: "A12.jpg", specs: "-شريحتين64GB" },
+  
 
 
 
@@ -53,7 +75,7 @@ const modems = [
    /* ─── ZTE موديمات محمولة ─── */
    //{ id: 101, name: "COOLpad", brand: "coolpad", price: 23500, oldPrice: null, category: "modem", rating: 4, badge: "new", image: "modem-coolpad.png", specs: "4G LTE - Wi-Fi 6 - بطارية 10000mAh - 26 ساعة" },
    //{ id: 102, name: "ZTE الحديث", brand: "ZTE", price: 25000, oldPrice: null, category: "modem", rating: 4, badge: null, image: "modem-zte-u30.png", specs: "5G - Wi-Fi 6 - سرعة 1200Mbps" },
-  // { id: 103, name: "فالكون", brand: "VORTEX", price: 32000, oldPrice: null, category: "modem", rating: 5, badge: "hot", image: "modem-falcon-3308", specs: "5G - 4x4 MIMO - Wi-Fi 6" },
+   { id: 103, name: "COOL4G", brand: "COOLPAD", price: 100, oldPrice: null, category: "modem", rating: 5, badge: "hot", image: "اااا/coolpad4g.jpg", specs: "-البطاريه 10000 Wi-Fi 5" },
    { id: 104, name: "CAT-6", brand: "VORTYX", price: 32000, oldPrice: null, category: "modem", rating: 5, badge: "hot", image: "VORTEX5.png", specs: " Wi-Fi 6  " },
    { id: 105, name: "فورتيكس-3", brand: "VORTYX", price: 28000, oldPrice: nulL, category: "modem", rating: 5, badge: "hot", image: "modem-forti-511f.png", specs: " Wi-Fi 6  " },
    { id: 4, name: "موديم سام فورجي", price: 29000, oldPrice: 33000, discount: 45, image: "SAM.png", timeLeft: "ينتهي اليوم" },
@@ -114,7 +136,7 @@ const banners = [
 const dailyOffers = [
    // { id: 1, name: "iPhone 18 Pro", price: 1400000, oldPrice: 1500000, discount: 10, image: "Iphone.PNG", timeLeft: "ينتهي اليوم" },
    // { id: 4, name: "Galaxy S24", price: 347000, oldPrice: 400000, discount: 25, image: "S24.png", timeLeft: "ينتهي اليوم" },
-   // { id: 2, name: "S25FE", price: 144000, oldPrice: 500000, discount: 25, image: "S25FE.png", timeLeft: "ينتهي اليوم" },
+   // { id: 2, name: "", price: 144000, oldPrice: 500000, discount: 25, image: "S25FE.png", timeLeft: "ينتهي اليوم" },
     { id: 4, name: "موديم سام فورجي", price: 29000, oldPrice: 33000, discount: 45, image: "SAM.png", timeLeft: "ينتهي اليوم" }
 ];
 /* ═══════════════════════════════════════════════════════════════
